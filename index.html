@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="bird.js"></script>
+    <script src="pipe.js"></script>
+    <script src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #background {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        
+        #main {
+            z-index: 100;
+            margin: 0;
+        }
+        
+        #title {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 50px;
+            margin: 30px;
+            color: rgb(20, 90, 90);
+        }
+        
+        #level {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 30px;
+            margin: 20px;
+            padding: 10px 30px;
+            background-color: rgba(20, 90, 90, 0.5);
+            color: yellow;
+        }
+        
+        #showGravity,
+        #showSpeed {
+            color: lime;
+        }
+        
+        #game {
+            z-index: 100;
+            border: solid 2px white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="title">
+            <span style="color: yellow;">Flappy </span>
+            <span style="color: lime;">Bird</span>
+        </div>
+        <canvas id="game"></canvas>
+        <div id="level">
+            <div id="gravityHolder">
+                Gravity == <input type="range" id="gravity" min="1" max="10" value="1"></input>
+                <span id="showGravity"></span>
+            </div>
+            <div id="speedHolder">
+                Speed == <input type="range" id="speed" min="1" max="10" value="1"></input>
+                <span id="showSpeed"></span>
+            </div>
+        </div>
+    </div>
+    <canvas id="background"></canvas>
+</body>
+
+
+</html>
