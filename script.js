@@ -2,7 +2,7 @@ let pipes = [];
 let time = 0;
 let gravity = 1;
 let speed = 1;
-
+let result = true;
 window.onload = function() {
     setBackground();
     setup();
@@ -20,6 +20,7 @@ function setup() {
 }
 
 function draw() {
+    setBackground();
 
     width = cnv.width = 600 * (1 + 0.1 * speed);
 
@@ -53,6 +54,7 @@ function draw() {
             ctx.rect(pipes[i].x, 0, pipes[i].width, pipes[i].top);
             ctx.fillStyle = "red";
             ctx.fill();
+            result = false;
         }
     }
     time++;
@@ -94,8 +96,11 @@ function setBackground() {
     backctx.lineTo(back.width * 4 / 6, back.height);
     backctx.moveTo(back.width * 5 / 6, 0);
     backctx.lineTo(back.width * 5 / 6, back.height);
-
-    backctx.strokeStyle = "rgb(20, 90,90)";
+    if (result == true) {
+        backctx.strokeStyle = "rgb(20, 90,90)";
+    } else {
+        backctx.strokeStyle = "rgb(220, 20,20)";
+    }
     backctx.stroke();
     backctx.beginPath();
 
@@ -124,7 +129,12 @@ function setBackground() {
     backctx.lineTo(back.width * 9 / 12, back.height);
     backctx.moveTo(back.width * 11 / 12, 0);
     backctx.lineTo(back.width * 11 / 12, back.height);
-
-    backctx.strokeStyle = "rgb(10, 120,120)";
+    if (result == true) {
+        backctx.strokeStyle = "rgb(10, 120,120)";
+    } else {
+        backctx.strokeStyle = "rgb(120, 20,20)";
+    }
     backctx.stroke();
+
+    result = true;
 }
